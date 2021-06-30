@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Angel Sola",
+  "classifications": [ "Console" ],
+  "name": "Nice.Console.App",
+  "defaultName": "Console.app",
+  "identity": "Tixone.Nice.Console.App",
+  "shortName": "ncapp",
+  "tags": {
+    "language": "C#",
+    "type": "project",
+    "version":  "net core 5.0"
+  },
+  "sourceName": "ncapp"
+}
