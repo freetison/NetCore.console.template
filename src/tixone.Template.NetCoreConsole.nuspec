@@ -2,18 +2,20 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Tixone.NetCore.Console.App.Template.nuspec</id>
-		<version>1.0.1</version>
+		<version>1.0.2</version>
 		<description>
 			Project template for creating a nice  async .NET Core console app.
 			With a simple http service as demo
 		</description>
 		<authors>Angel Sola</authors>
 		<license type="expression">Apache-2.0</license>
+		<repository type="git" url="https://github.com/freetison/NetCore.console.template.git" branch="dev" />
 		<packageTypes>
 			<packageType name="Template" />
 		</packageTypes>
 	</metadata>
 	<files>
 		<file src="Content\**\*.*" exclude="Content\**\bin\**\*.*;Content\**\obj\**\*.*" target="Content" />
+		<file src="Content\Application\.template.config\icon.ico" target="images\" />
 	</files>
 </package>
