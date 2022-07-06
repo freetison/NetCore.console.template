@@ -83,7 +83,6 @@
             serviceCollection.AddHttpService(options =>
             {
                 options.BaseUrl = "https://google.com";
-                //options.Authenticator = new HttpBasicAuthenticator("user", "xxxxxxxx");
             });
 
 

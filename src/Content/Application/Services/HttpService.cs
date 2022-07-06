@@ -1,31 +1,32 @@
 ﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
+using Flurl.Http;
 using Microsoft.Extensions.Options;
 using ncapp.DependencyInjection;
-using RestSharp;
 
 namespace ncapp.Services
 {
     public class HttpService: IHttpService
     {
-        private readonly IRestClient _restClient;
+        private readonly Uri _baseUrl;
 
-        public HttpService(IRestClient restClient, IOptions<HttpServiceOptions> options)
+        public HttpService(IOptions<HttpServiceOptions> options)
         {
-            _restClient = restClient;
-            _restClient.BaseUrl = new Uri(options.Value.BaseUrl);
+            _baseUrl = new Uri(options.Value.BaseUrl);
         }
 
-        public async Task<string> Ping(Uri uri = null)
+        public async Task<HttpResponseMessage> Ping()
         {
-            if (uri != null) { _restClient.BaseUrl = uri;}
+           var policy = ServiceExtensions
+                .FlurlRetryPolicyAsync() 
+                .ExecuteAsync(() => _baseUrl.GetAsync());
 
-            RestRequest request = new RestRequest(Method.GET);
-            IRestResponse response = await _restClient.ExecuteAsync(request);
+            var response = await _baseUrl.GetAsync();
 
-            Console.WriteLine(response.Content);
+            Console.WriteLine(response.ResponseMessage);
 
-            return response.Content;
+            return response.ResponseMessage;
         }
     }
 }

@@ -18,7 +18,7 @@ namespace ncapp
         public async Task Run()
         {
             Log.Information("App started !!!");
-            Console.WriteLine(await _httpService.Ping(new Uri("https://www.boredapi.com/api/activity")));
+            Console.WriteLine(await _httpService.Ping());
 
         }
     }
