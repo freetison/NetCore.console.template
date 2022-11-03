@@ -1,94 +1,35 @@
-﻿namespace ncapp
-{
-    using System;
-    using Serilog;
-    using System.IO;
-    using System.Threading.Tasks;
-    using DependencyInjection;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Configuration;
-    using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using ncapp;
+using ncapp.DependencyInjection;
+using ncapp.Services;
 
-    class Program
-    {
-        public static IConfigurationRoot Configuration;
+using System;
 
-        static int Main(string[] args)
+var host = CreateHostBuilder(args).Build();
+App app = host.Services.GetRequiredService<App>();
+if (app != null) await app.Run();
+
+static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseEnvironment(Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Development")
+        .ConfigureAppConfiguration((hostingContext, config) =>
         {
-            try
-            {
-                // Start!
-                MainAsync(args).Wait();
-                return 0;
-            }
-            catch (Exception ex)
-            {
-                return 1;
-            }
-        }
+            var env = hostingContext.HostingEnvironment;
 
-        static async Task MainAsync(string[] args)
+            config.AddEnvironmentVariables();
+            config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            config.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: false, reloadOnChange: true);
+        })
+        .ConfigureServices((hostContext, services) =>
         {
-            try
-            {
-                // Create service collection
-                ServiceCollection serviceCollection = new ServiceCollection();
-                ConfigureServices(serviceCollection);
-
-                // Create service provider
-                IServiceProvider serviceProvider = serviceCollection.BuildServiceProvider();
-
-                await serviceProvider.GetService<App>()?.Run();
-            }
-            catch (Exception ex)
-            {
-                Log.Fatal(ex, "Error running app");
-                throw ex;
-            }
-            finally
-            {
-                Log.CloseAndFlush();
-                Console.ReadKey();
-            }
-        }
-
-        private static void ConfigureServices(IServiceCollection serviceCollection)
-        {
-            // Add logging
-            serviceCollection.AddLogging(loggingBuilder =>
-            {
-                loggingBuilder.AddConsole();
-                loggingBuilder.AddSerilog(dispose: true);
-                loggingBuilder.AddDebug();
-            });
-
-            // Build configuration
-            Configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetParent(AppContext.BaseDirectory)?.FullName)
-                .AddJsonFile("appsettings.json", true)
-                .Build();
-
-            // Initialize serilog logger
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console(Serilog.Events.LogEventLevel.Debug)
-                .MinimumLevel.Debug()
-                .Enrich.FromLogContext()
-                .CreateLogger();
-
-            // Add options
-            serviceCollection.AddOptions();
-            serviceCollection.AddSingleton(Configuration);
-
-            // Add client
-            serviceCollection.AddHttpService(options =>
-            {
-                options.BaseUrl = "https://google.com";
-                //options.Authenticator = new HttpBasicAuthenticator("user", "xxxxxxxx");
-            });
+            services.AddLogger();
+            services.ConfigureSettings(hostContext.Configuration);
+            services.AddHttpClient(hostContext.Configuration);
+            services.AddTransient<IBoredApiService, BoredApiService>();
+            services.AddSingleton<App>();
+            
+        });
 
 
-            // Add app
-            serviceCollection.AddSingleton<App>();
-        }
-    }
-}

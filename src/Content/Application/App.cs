@@ -7,19 +7,20 @@ namespace ncapp
 {
     public class App
     {
-        private readonly IHttpService _httpService;
-
-
-        public App(IHttpService httpService)
+        private readonly IBoredApiService _boredApiService;
+        
+        public App(IBoredApiService boredApiService)
         {
-            _httpService = httpService;
+            _boredApiService = boredApiService;
         }
 
         public async Task Run()
         {
             Log.Information("App started !!!");
-            Console.WriteLine(await _httpService.Ping(new Uri("https://www.boredapi.com/api/activity")));
+            var result = await _boredApiService.GetData();
+            Console.WriteLine(result);
 
+            Console.ReadKey();
         }
     }
 }
