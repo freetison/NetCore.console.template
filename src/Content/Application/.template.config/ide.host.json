@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json.schemastore.org/vs-2017.3.host",
+  "order": 0,
+  "icon": "icon.ico",
+  "symbolInfo": [
+    {
+      "id": "FunctionName",
+      "name": {
+        "text": "The name of the Azure Function."
+      },
+      "isVisible": true
+    },
+    {
+      "id": "LogLevel",
+      "name": {
+        "text": "Default LogLevel for the Azure Function."
+      },
+      "isVisible": true
+    },
+    {
+      "id": "CronExpression",
+      "name": {
+        "text": "The timer expression in cron expression."
+      },
+      "isVisible": true
+    }
+  ]
+}

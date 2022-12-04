@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json.schemastore.org/dotnetcli.host",
+  "symbolInfo": {
+    "prefix": {
+      "longName": "prefix",
+      "shortName": "pf"
+    },
+    "shortName": {
+      "longName": "short-name",
+      "shortName": "sn"
+    },
+    "projectName": {
+      "longName": "project-name",
+      "shortName": "pn"
+    }
+  }
+}

@@ -3,7 +3,8 @@
   "author": "Angel Sola",
   "classifications": [ "Console" ],
   "name": "Nice.Console.App",
-  "defaultName": "Console.app",
+  "defaultName": "Nice.Console.app",
+  "description": "Project template for creating a nice  async .NET Core console app. With a simple http service as demo",
   "identity": "Tixone.Nice.Console.App",
   "shortName": "ncapp",
   "tags": {

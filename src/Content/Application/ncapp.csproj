@@ -1,9 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+    <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <PropertyGroup>
+    <PackageType>Template</PackageType>
+    <PackageVersion>1.0.6</PackageVersion>
+    <PackageId>Tixone.NetCore.Console.App.Template</PackageId>
+    <Title>Nice.Console.App</Title>
+    <Authors>Angel Sola</Authors>
+    <Description>
+      Project template for creating a nice  async .NET Core console app.
+      With a simple http service as demo
+    </Description>
+    <PackageTags>net 6.0;templates;console</PackageTags>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/freetison/NetCore.console.template.git" branch="dev"</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+  </PropertyGroup>
+
 
   <ItemGroup>
 	  <PackageReference Include="Flurl.Http" Version="3.2.4" />
