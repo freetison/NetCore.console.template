@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
 	<metadata>
 		<id>Tixone.NetCore.Console.App.Template</id>
-		<version>1.0.7</version>
+		<version>1.0.7.1</version>
 		<description>
 			Project template for creating a nice  async .NET Core console app.
 			With a simple http service as demo
@@ -10,7 +10,7 @@
 		<authors>Angel Sola</authors>
     <owners>Tixone</owners>
     <language></language>
-    <tags>console net core 6.0</tags>
+    <tags>console net core 7.0</tags>
 		<license type="expression">Apache-2.0</license>
 		<repository type="git" url="https://github.com/freetison/NetCore.console.template.git" branch="dev" />
 		<packageTypes>

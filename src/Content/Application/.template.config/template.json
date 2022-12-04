@@ -10,7 +10,7 @@
   "tags": {
     "language": "C#",
     "type": "project",
-    "version": "net core 6.0"
+    "version": "net core 7.0"
   },
   "sourceName": "ncapp",
   "symbols": {
@@ -20,12 +20,12 @@
       "datatype": "choice",
       "choices": [
         {
-          "choice": "net6.0",
-          "description": "Target net6.0"
+          "choice": "net7.0",
+          "description": "Target net7.0"
         }
       ],
-      "replaces": "net6.0",
-      "defaultValue": "net6.0"
+      "replaces": "net7.0",
+      "defaultValue": "net7.0"
     },
     "AuthorName": {
       "type": "parameter",

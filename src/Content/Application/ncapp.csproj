@@ -1,13 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <PackageReadmeFile>Readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageType>Template</PackageType>
-    <PackageVersion>1.0.6</PackageVersion>
+    <PackageVersion>1.0.7</PackageVersion>
     <PackageId>Tixone.NetCore.Console.App.Template</PackageId>
     <Title>Nice.Console.App</Title>
     <Authors>Angel Sola</Authors>
@@ -15,8 +15,8 @@
       Project template for creating a nice  async .NET Core console app.
       With a simple http service as demo
     </Description>
-    <PackageTags>net 6.0;templates;console</PackageTags>
-    <TargetFramework>net6.0</TargetFramework>
+    <PackageTags>net 7.0;templates;console</PackageTags>
+    <TargetFramework>net7.0</TargetFramework>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
@@ -28,23 +28,23 @@
 
   <ItemGroup>
 	  <PackageReference Include="Flurl.Http" Version="3.2.4" />
-	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.1" />
-	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.1" />
-	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
-	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+	  <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	  <PackageReference Include="Polly" Version="7.2.3" />
 	  <PackageReference Include="Serilog" Version="2.12.0" />
 	  <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
 	  <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
-	  <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.2" />
-	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
-	  <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="6.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
   </ItemGroup>
 
   <ItemGroup>
